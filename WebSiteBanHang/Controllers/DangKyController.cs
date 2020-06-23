@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebSiteBanHang.Controllers
 {
-    [Authorize(Roles = "DangNhap")]
+    [Authorize(Roles = "DangKy")]
     public class DangKyController : Controller
     {
         //
