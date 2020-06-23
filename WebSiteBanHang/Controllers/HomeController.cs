@@ -136,21 +136,7 @@ namespace WebSiteBanHang.Controllers
             return Content("Tài khoản hoặc mật khẩu không đúng!");
 
         }
-        public void PhanQuyen(string TaiKhoan, string Quyen)
-        {
-            FormsAuthentication.Initialize();
-            var ticket = new FormsAuthenticationTicket(1,
-                                          TaiKhoan, //user
-                                          DateTime.Now, //Thời gian bắt đầu
-                                          DateTime.Now.AddHours(3), //Thời gian kết thúc
-                                          false, //Ghi nhớ?
-                                          Quyen, // "DangKy,QuanLyDonHang,QuanLySanPham"
-                                          FormsAuthentication.FormsCookiePath);
-
-            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
-            if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
-            Response.Cookies.Add(cookie);
-        }
+        
         //Tạo trang ngăn chặn quyền truy cập
         public ActionResult LoiPhanQuyen()
         {
